@@ -1,11 +1,11 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	name: "SM64 Tree",
+	id: "dont_sue_me_nintendo",
+	author: "spoop#0815",
+	pointsName: "coins",
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
@@ -41,6 +41,8 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+  if(hasUpgrade('r', 11)) gain = gain.mul(upgradeEffect('r', 11))
+  if(hasUpgrade('r', 12)) gain = gain.mul(upgradeEffect('r', 12))
 	return gain
 }
 
